@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+  namespace: '$.ns'
+spec:
+  selector:
+    matchLabels:
+      app: ui
+  template:
+    metadata:
+      labels:
+        app: ui
+    spec:
+      containers:
+        - name: ui
+          image: k3env/auth-ui:$.tag
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
+          envFrom:
+            - configMapRef:
+                name: ui-env
+            - secretRef:
+                name: ui-env
+          ports:
+            - containerPort: 3000
