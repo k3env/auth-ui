@@ -23,7 +23,7 @@ steps:
       template: .ci/deployment.yaml
       vars:
         tag: ${DRONE_COMMIT_SHA:0:8}
-        ns: landing-dev
+        ns: id-dev
   - name: send notification
     image: appleboy/drone-telegram
     settings:
@@ -65,7 +65,7 @@ steps:
       template: .ci/deployment.yaml
       vars:
         tag: ${DRONE_TAG}
-        ns: landing
+        ns: id
   - name: send notification
     image: appleboy/drone-telegram
     settings:
