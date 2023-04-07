@@ -49,7 +49,7 @@ export const actions = {
             sameSite: boolean | 'lax' | 'strict' | 'none' | undefined;
             httpOnly: boolean;
           } = {
-            // domain: kv['Domain'],
+            domain: kv['Domain'],
             maxAge: JSON.parse(kv['Max-Age']),
             path: kv['Path'],
             sameSite: 'lax',
